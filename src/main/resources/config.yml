@@ -1,0 +1,9 @@
+settings:
+  resell_cooldown: 60 # задержка на перевыставление товаров в секундах
+  sounds: # если хотите, чтобы звука не было, ставьте NONE, звука не будет
+    resell: UI_BUTTON_CLICK
+    resell_cooldown: BLOCK_ANVIL_USE
+messages:
+  resell_cooldown: "&#6A00FDᴀ&#7300FDᴜ&#7C00FEᴄ&#8500FEᴛ&#8D00FEɪ&#9600FFᴏ&#9F00FFɴ &7» &cВы сможете перевыставить все свои товары только через %time% сек."
+  no_items_resell: "&#6A00FDᴀ&#7300FDᴜ&#7C00FEᴄ&#8500FEᴛ&#8D00FEɪ&#9600FFᴏ&#9F00FFɴ &7» &cУ вас нет товаров для перепродажи"
+  resell_success: "&#6A00FDᴀ&#7300FDᴜ&#7C00FEᴄ&#8500FEᴛ&#8D00FEɪ&#9600FFᴏ&#9F00FFɴ &7» &fВы успешно перевыставили все свои товары!"

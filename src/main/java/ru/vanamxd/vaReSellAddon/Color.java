@@ -1,0 +1,47 @@
+package ru.vanamxd.vaReSellAddon;
+
+import org.bukkit.ChatColor;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Color {
+    private static final Pattern HEX_PATTERN = Pattern.compile("(?i)(?:&#|#)([a-f0-9]{6})");
+    private static final Pattern LEGACY_HEX_PATTERN = Pattern.compile("(?i)&x((&[a-f0-9]){6})");
+
+    public static String translate(String message) {
+        if (message == null || message.isEmpty()) return "";
+        message = translateHex(message);
+        message = translateLegacyHex(message);
+        return ChatColor.translateAlternateColorCodes('&', message);
+    }
+
+    private static String translateHex(String message) {
+        Matcher matcher = HEX_PATTERN.matcher(message);
+        StringBuffer buffer = new StringBuffer();
+        while (matcher.find()) {
+            String hex = matcher.group(1);
+            StringBuilder replacement = new StringBuilder("§x");
+            for (char c : hex.toCharArray()) {
+                replacement.append('§').append(c);
+            }
+            matcher.appendReplacement(buffer, replacement.toString());
+        }
+        matcher.appendTail(buffer);
+        return buffer.toString();
+    }
+
+    private static String translateLegacyHex(String message) {
+        Matcher matcher = LEGACY_HEX_PATTERN.matcher(message);
+        StringBuffer buffer = new StringBuffer();
+        while (matcher.find()) {
+            String hex = matcher.group(1).replace("&", "");
+            StringBuilder replacement = new StringBuilder("§x");
+            for (char c : hex.toCharArray()) {
+                replacement.append('§').append(c);
+            }
+            matcher.appendReplacement(buffer, replacement.toString());
+        }
+        matcher.appendTail(buffer);
+        return buffer.toString();
+    }
+}

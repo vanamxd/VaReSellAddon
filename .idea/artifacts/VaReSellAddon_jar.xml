@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="VaReSellAddon:jar">
+    <output-path>$USER_HOME$/Downloads</output-path>
+    <root id="archive" name="VaReSellAddon.jar">
+      <element id="module-output" name="VaReSellAddon" />
+    </root>
+  </artifact>
+</component>
